@@ -1,5 +1,5 @@
-html, body {
-    margin: 0;
+body {
+	margin: 0;
     width: 100%;
     height: 100%;
 	overflow: hidden;/*如果没有这个，缩放的时候，canvas可能和原div不同步，而且会出现滚动条*/
@@ -9,7 +9,14 @@ body{
 	background: url('../resources/bg.png') ;
 	background-repeat: repeat;
   /*background-color: #000000;*/
- /* background-color: #F8F4F0;*/
+  /*background-color: #F8F4F0;*/
+}
+
+#title_logo{
+	position: absolute;
+	left: 50%;
+	margin-left: -350px;
+	top: 10%;
 }
 
 #glWindow {
