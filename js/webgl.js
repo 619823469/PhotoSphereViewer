@@ -19,10 +19,11 @@ var isAni, isAniStop, isAniSave, isSmoothAni, isSmoothZoomAni;
 var phiSmoothDelta;
 var isNewWheelVal, wheelZoomTarget, wheelZoom, wheelZoomSmooth;
 
-//init();
-//animate();
+init();
+animate();
 
 function init() {
+	console.log("init...");
 	//if(window.Worker){console.log("worker");}else{console.log("no worker");}
 	debug = false;
 
@@ -44,7 +45,7 @@ function init() {
 	cDis = sHeight / (2 * Math.tan((camera.fov / 2) * Math.PI / 180));
 
 	imageURL = "photos/sphere.jpg"
-	loadPhotoSphere(imageURL);
+	//loadPhotoSphere(imageURL);
 
 	if (isCanvas) {
 		renderer = new THREE.CanvasRenderer({
@@ -59,7 +60,7 @@ function init() {
 
 	renderer.setSize(sWidth, sHeight);
 	//renderer.domElement.style.opacity = 0.5;  //set the opacity of the sphere
-	$("#glWindow").append(renderer.domElement);
+	$("#gl_window").append(renderer.domElement);
 
 	/*
 		DDD    EEEEE  BBBB   U   U   GGG
@@ -73,7 +74,7 @@ function init() {
 	fpsConsole = new Stats();
 	fpsConsole.domElement.style.position = 'absolute';
 	fpsConsole.domElement.style.top = '0px';
-	$("#glWindow").append(fpsConsole.domElement);
+	$("#gl_window").append(fpsConsole.domElement);
 	/*camera2 = new THREE.PerspectiveCamera(75, sWidth / sHeight, 1, 100);
 	camera2.position.x = 0;
 	camera2.position.y = 15;
@@ -116,6 +117,10 @@ function init() {
 	document.body.addEventListener('DOMMouseScroll', handleDOMMouseScroll, false); //for firefox
 
 	console.log("loaded!");
+	setTimeout(function(){
+		$("#boot_spin").fadeOut();
+		$("#boot_spin_img").fadeOut();
+	},500);
 }
 
 function loadPhotoSphere(url) {
@@ -221,15 +226,15 @@ function loadCropTexture(url) {
 function createSphere(data) {
 	var texture = new THREE.Texture();
 	var material = new THREE.MeshBasicMaterial({
-		//map: texture,
-		color: 0x666666,
+	    map: texture
+		//color: 0x666666,
 		//overdraw: true,
-		wireframe: true
+		//wireframe: true
 	});
 	var image = new Image();
 	image.onload = function() {
-		//texture.needsUpdate = true;
-		//material.map.image = this;
+		texture.needsUpdate = true;
+		material.map.image = this;
 		if (sphereGeo == undefined) {
 			if (isCanvas) {
 				sphereGeo = new THREE.SphereGeometry(10, 20, 20);

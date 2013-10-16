@@ -1,15 +1,10 @@
-var bootSpin;
 var titleLogo;
 
 boot();
-
 function boot() {
 	console.log("boot...");
-	bootSpin = document.createElement("div");
 	titleLogo = document.createElement("img");
 	//document.body.appendChild(bootSpin);
-	bootSpin.id = "boot_spin";
-	bootSpin.class = "round";
 	var xhr;
 	if (window.XMLHttpRequest) {
 		xhr = new XMLHttpRequest();
