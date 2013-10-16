@@ -24,4 +24,5 @@ function bootPre() {
 	}
 	xhr.open("GET", "resources/boot_spin.png", true);
 	xhr.send();
+	just
 }
