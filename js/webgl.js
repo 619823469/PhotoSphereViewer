@@ -24,7 +24,6 @@ animate();
 
 function init() {
 	console.log("init...");
-	//if(window.Worker){console.log("worker");}else{console.log("no worker");}
 	debug = false;
 
 	sWidth = $(window).width();
