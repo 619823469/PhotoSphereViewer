@@ -19,8 +19,13 @@ var isAni, isAniStop, isAniSave, isSmoothAni, isSmoothZoomAni;
 var phiSmoothDelta;
 var isNewWheelVal, wheelZoomTarget, wheelZoom, wheelZoomSmooth;
 
-init();
-animate();
+test();
+function test(){
+	setTimeout(function(){
+	init();
+	animate();
+},1000);
+}
 
 function init() {
 	console.log("init...");
