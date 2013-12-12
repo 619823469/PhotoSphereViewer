@@ -78,13 +78,13 @@ function boot2(){
 		}, false);
 		xhrArray[i].addEventListener("progress", function(e){
 			for(var i = 0; i < xhrArray.length; i++){
-				if(this == xhrArray[i]){  //here is to know what am I
+				if(this == xhrArray[i]){  //here is to know who am I
 					bootFileSizeLoaded[i] = e.loaded; //note, in IE 10, e.position is not supported.
 					var sum = 0;
 					for(x in bootFileSizeLoaded){
 						sum += bootFileSizeLoaded[x];
 					}
-					bootPercentage = sum / bootFileSizeTotal
+					bootPercentage = sum / bootFileSizeTotal;
 					console.log(bootPercentage);
 					break;
 				}
